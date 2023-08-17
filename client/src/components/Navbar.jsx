@@ -4,7 +4,7 @@ import { PersonOutlineOutlined, ShoppingCartOutlined } from '@material-ui/icons'
 import { Badge } from '@material-ui/core'
 import { mobile } from '../responsive'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/logo.svg'
 
 // styled.div`` is a tagged template literal, which is a special type of function call that parses the template literal into an argument for the styled.div function call.
@@ -51,10 +51,12 @@ const Center = styled.div`
 `
 
 const MenuItem = styled.div`
+    color: #231F20;
     font-weight: 500;
     color: #231F20;
     font-size: 20px;
     margin-left: 25px;
+    opacity: ${props => (props.isActive ? '0.4' : '1')};
     
     ${mobile({ fontSize: "14px", marginLeft: "10px" })}
 `
@@ -69,48 +71,59 @@ const Right = styled.div`
     ${mobile({ flex: 1 })}
 `
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+`
+
 const Navbar = () => {
     const quantity = useSelector(state => state.cart.quantity)
+
+    const location = useLocation();
+    const currentPath = location.pathname.split('/')[1];
+    console.log(currentPath)
+    const isProductsPath = currentPath.split('/')[0] === 'products'
+
 
   return (
     <Container>
         <Wrapper>
             <Left>
-                <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <StyledLink to="/" >
                     <Logo src={logo} />
-                </Link>
+                </StyledLink>
             </Left>
             <Center>
-                <MenuItem>
-                    <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem isActive={currentPath === ''}>
+                    <StyledLink to="/">
                         Home
-                    </Link>
+                    </StyledLink>
                 </MenuItem>
-                <MenuItem>
-                    <Link to="/products/All" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem isActive={isProductsPath}>
+                    <StyledLink to="/products/All" >
                         Shop
-                    </Link>
+                    </StyledLink>
                 </MenuItem>
-                <MenuItem>
-                    <Link to="/blog" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem isActive={currentPath === 'blog'}>
+                    <StyledLink to="/blog" >
                         Blog
-                    </Link>
+                    </StyledLink>
                 </MenuItem>
-                <MenuItem>
-                    <Link to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem isActive={currentPath === 'contact'}>
+                    <StyledLink to="/contact" >
                         Contact
-                    </Link>
+                    </StyledLink>
                 </MenuItem>
             </Center>
             <Right>
-                <MenuItem>
+                <MenuItem isActive={currentPath === 'cart'}>
                     <Link to="/cart" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
                         <Badge badgeContent={quantity} color="primary">
                             <ShoppingCartOutlined />
                         </Badge>
                     </Link>
                 </MenuItem>
-                <MenuItem> 
+                <MenuItem isActive={currentPath === 'login' || currentPath === 'register'}>
                     <Link to="/login" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
                         <PersonOutlineOutlined />
                     </Link>

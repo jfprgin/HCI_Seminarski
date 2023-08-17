@@ -1,4 +1,5 @@
 api:
+
     npm init react-app  e-commerce-app-2
 
     npm install -g nodemon --save-dev
@@ -18,6 +19,7 @@ api:
     yarn add cors
 
 client:
+
     yarn add styled-components
 
     yarn add @material-ui/core @material-ui/icons
@@ -35,6 +37,7 @@ client:
     yarn add redux-persist
 
 admin:
+
     git clone --single-branch -b react-admin https://github.com/safak/youtube admin
 
     yarn

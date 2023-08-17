@@ -119,6 +119,12 @@ const ListLine = styled.div`
     margin-bottom: 20px;
 `
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+    font-family: 'EB Garamond', serif;
+`
+
 const Footer = () => {
   return (
     <Container>
@@ -131,27 +137,27 @@ const Footer = () => {
             <Title>Menu</Title>
             <List>
                 <ListItem>
-                    <Link to="/" style={{ textDecoration: "none", color: "inherit", fontFamily: "inherit" }}>
+                    <StyledLink to="/" >
                         Home
-                    </Link>
+                    </StyledLink>
                 </ListItem>
                 <ListLine />
                 <ListItem>
-                    <Link to="/products/All" style={{ textDecoration: "none", color: "inherit", fontFamily: "inherit" }}>
+                    <StyledLink to="/products/All" >
                         Shop
-                    </Link>
+                    </StyledLink>
                 </ListItem>
                 <ListLine />
                 <ListItem>
-                    <Link to="/blog" style={{ textDecoration: "none", color: "inherit", fontFamily: "inherit" }}>
+                    <StyledLink to="/blog" >
                         Blog
-                    </Link>
+                    </StyledLink>
                 </ListItem>
                 <ListLine />
                 <ListItem>
-                    <Link to="/contact" style={{ textDecoration: "none", color: "inherit", fontFamily: "inherit" }}>
+                    <StyledLink to="/contact" >
                         Contact
-                    </Link>
+                    </StyledLink>
                 </ListItem>
             </List>
         </Right>
