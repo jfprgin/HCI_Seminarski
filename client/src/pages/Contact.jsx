@@ -54,18 +54,19 @@ const HeroImageMask = styled.div`
 
 const HeroText = styled.div`
     color: #E8E8E1;
-    font-size: 64px;
+    font-size: 96px;
     font-weight: 300;
     font-family: 'EB Garamond', serif;
     position: absolute;
     top: 50%; /* Move the text 50% down from the top of the container */
     left: 50%; /* Move the text 50% from the left of the container */
     transform: translate(-50%, -50%); /* Center the text both horizontally and vertically */
+
+    ${mobile({ fontSize: "64px" })}
 `
 
-// set min width to 500px
 const Wrapper = styled.div`
-    width: 70%;
+    width: 60%;
     min-width: 300px;
     padding: 20px;
     text-align: center;

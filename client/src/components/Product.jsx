@@ -64,7 +64,6 @@ const Icon = styled.div`
         background-color: #e9f5f5;
         transform: scale(1.1);
     }
-
 `
 
 const Product = ({item}) => {
@@ -77,7 +76,7 @@ const Product = ({item}) => {
                 <ShoppingCartOutlined />
             </Icon>
             <Icon>
-                <Link to={`/product/${item._id}`}>
+                <Link to={`/product/${item._id}`} style={{textDecoration: "none", color: "inherit"}}>
                     <SearchOutlined />
                 </Link>
             </Icon>

@@ -5,7 +5,7 @@ import { mobile } from '../responsive'
 
 const Container = styled.div`
     height: 60vh;
-    background-color: #fcf5f5;
+    background-color: #E8E8E1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +30,7 @@ const InputContainer = styled.div`
     background-color: white;
     display: flex;
     justify-content: space-between;
-    border: 1px solid lightgray;
+    border: 1px solid #231F20;
     ${mobile({ width: "80%" })}
 `
 
@@ -43,8 +43,13 @@ const Input = styled.input`
 const Button = styled.button`
     flex: 1;
     border: none;
-    background-color: teal;
-    color: white;
+    background-color: #533710;
+    color: #E8E8E1;
+
+    &:hover {
+        background-color: #231F20;
+        cursor: pointer;
+    }
 `
 
 const Newsletter = () => {

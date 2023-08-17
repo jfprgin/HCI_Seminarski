@@ -12,6 +12,7 @@ const Container = styled.div`
     height: 100px;
     padding: 5px 20px;                 // top/bottom left/right
     border-bottom: 0.5px solid #231F20;
+    background-color: #E8E8E1;
 
     ${mobile({ height: "50px" })}
 `
@@ -119,13 +120,13 @@ const Navbar = () => {
                 <MenuItem isActive={currentPath === 'cart'}>
                     <Link to="/cart" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
                         <Badge badgeContent={quantity} color="primary">
-                            <ShoppingCartOutlined />
+                            <ShoppingCartOutlined style={{ fontSize: "30px"}} />
                         </Badge>
                     </Link>
                 </MenuItem>
                 <MenuItem isActive={currentPath === 'login' || currentPath === 'register'}>
                     <Link to="/login" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
-                        <PersonOutlineOutlined />
+                        <PersonOutlineOutlined style={{ fontSize: "34px"}} />
                     </Link>
                 </MenuItem>
             </Right>

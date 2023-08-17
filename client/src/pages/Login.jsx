@@ -25,7 +25,7 @@ const LoginContainer = styled.div`
 const Wrapper = styled.div`
     width: 25%;
     max-width: 500px;
-    min-width: 300px;q
+    min-width: 300px;
     padding: 20px;
     text-align: center;
     ${mobile({ width: "75%" })};
