@@ -1,3 +1,8 @@
+CART NEEDS FUNCTIONALITY:
+    Change number of items in cart
+    Remove item from cart
+
+
 api:
 
     npm init react-app  e-commerce-app-2

@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 
 const Home = () => {
   return (
-    <div>
+    <div style={{backgroundColor: "#E8E8E1"}}>
         <Navbar />
         <Announcement />
         <Slider />

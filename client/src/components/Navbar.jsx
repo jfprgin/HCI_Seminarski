@@ -6,6 +6,15 @@ import { mobile } from '../responsive'
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/logo.svg'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#533710',
+        }
+    },
+});
 
 // styled.div`` is a tagged template literal, which is a special type of function call that parses the template literal into an argument for the styled.div function call.
 const Container = styled.div`
@@ -87,6 +96,7 @@ const Navbar = () => {
 
 
   return (
+    <ThemeProvider theme={theme}>
     <Container>
         <Wrapper>
             <Left>
@@ -118,20 +128,35 @@ const Navbar = () => {
             </Center>
             <Right>
                 <MenuItem isActive={currentPath === 'cart'}>
-                    <Link to="/cart" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
-                        <Badge badgeContent={quantity} color="primary">
+                    <Link
+                        to="/cart"
+                        style={{
+                            textDecoration: 'none',
+                            color: 'inherit',
+                            display: 'flex',
+                            alignItems: 'center'
+                        }}>
+                        <Badge badgeContent={quantity} color={"primary"}>
                             <ShoppingCartOutlined style={{ fontSize: "30px"}} />
                         </Badge>
                     </Link>
                 </MenuItem>
                 <MenuItem isActive={currentPath === 'login' || currentPath === 'register'}>
-                    <Link to="/login" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
+                    <Link
+                        to="/login"
+                        style={{
+                            textDecoration: 'none',
+                            color: 'inherit',
+                            display: 'flex',
+                            alignItems: 'center'
+                        }}>
                         <PersonOutlineOutlined style={{ fontSize: "34px"}} />
                     </Link>
                 </MenuItem>
             </Right>
         </Wrapper>
     </Container>
+    </ThemeProvider>
   )
 }
 
