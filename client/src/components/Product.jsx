@@ -1,90 +1,90 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ShoppingCartOutlined, SearchOutlined, FavoriteBorderOutlined } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
-
-const Info = styled.div`
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.2);
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-    cursor: pointer;
-`
+import { mobile } from '../responsive'
 
 const Container = styled.div`
-    flex: 1;
-    margin: 5px;
-    min-width: 350px;
-    max-width: 350px;
-    height: 350px;
+    margin: 20px;
+    width: 20vw;
+    min-width: 300px;
+    height: 50vh;
+    min-height: 400px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5fbfd;
-    position: relative;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 20px;
 
-    &:hover ${Info}{
-        opacity: 1;
+    &:hover img {
+        transform: scale(1.05);
     }
-`
-const Circle = styled.div`
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
-`
-const Image = styled.img`
-    height: 75%;
-    max-width: 75%;
-    object-fit: cover;
-    z-index: 2;
+
+    ${mobile({ width: "80vw", paddingBottom: "0px", margin: "0px" })};
 `
 
-const Icon = styled.div`
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: white;
+const ImageContainer = styled.div`
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px;
+    margin-bottom: 10px;
+`
+
+const Image = styled.img`
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
     transition: all 0.5s ease;
+`
+
+const Info = styled.div`
+    font-family: 'EB Garamond', serif;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
     &:hover {
-        background-color: #e9f5f5;
-        transform: scale(1.1);
+        opacity: 0.8;
     }
+
+    ${mobile({ borderBottom: "1px solid #231F20" })};
 `
+
+const Title = styled.div`
+    color: #231F20;
+    font-size: 32px;
+    font-family: inherit;
+`
+
+const Size = styled.div`
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: inherit;
+`
+
+const Price = styled.div`
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-weight: 600;
+`
+
 
 const Product = ({item}) => {
   return (
-    <Container>
-        <Circle />
-        <Image src={item.img} />
-        <Info>
-            <Icon>
-                <ShoppingCartOutlined />
-            </Icon>
-            <Icon>
-                <Link to={`/product/${item._id}`} style={{textDecoration: "none", color: "inherit"}}>
-                    <SearchOutlined />
-                </Link>
-            </Icon>
-            <Icon>
-                <FavoriteBorderOutlined />
-            </Icon>
-        </Info>
-    </Container>
+    <Link to={`/product/${item._id}`} style={{textDecoration: "none", color: "inherit"}}>
+        <Container>
+            <ImageContainer>
+                <Image src={item.img} />
+            </ImageContainer>
+            <Info>
+                <Title>{item.title}</Title>
+                <Size>{Array.isArray(item.size) ? item.size.join(' g, ') : `${item.size}`} g</Size>
+                <Price>${item.price}</Price>
+            </Info>
+        </Container>
+    </Link>
   )
 }
 

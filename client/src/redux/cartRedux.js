@@ -12,9 +12,32 @@ const cartSlice = createSlice({
             state.quantity += 1;
             state.products.push(action.payload);
             state.total += action.payload.price * action.payload.quantity;
-        }
+        },
+        removeProduct: ( state, action) => {
+            if ( state.quantity <= 0 ) return;
+            state.quantity -= 1;
+            state.products = state.products.filter(product => product._id !== action.payload._id);
+            state.total -= action.payload.price * action.payload.quantity;
+            state.products.pop(action.payload);
+        },
+        subtractProductInCart: ( state, action) => {
+            console.log(action.payload.quantity);
+            if ( state.quantity <= 1 ) 
+            {
+                state.quantity = 1;
+            }
+            else
+            {
+                state.total -= action.payload.price;
+                state.quantity -= 1;
+            }
+        },
+        addProductInCart: ( state, action) => {
+            state.total += action.payload.price;
+            state.quantity += 1;
+        },
     }
 });
 
-export const { addProduct } = cartSlice.actions;
+export const { addProduct, removeProduct, subtractProductInCart, addProductInCart } = cartSlice.actions;
 export default cartSlice.reducer;

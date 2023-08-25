@@ -5,11 +5,12 @@ import Announcement from '../components/Announcement'
 import Footer from '../components/Footer'
 import { Add, Remove } from '@material-ui/icons'
 import { mobile } from '../responsive'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useMediaQuery } from '@material-ui/core'
+import { removeProduct, addProductInCart, subtractProductInCart } from '../redux/cartRedux'
 
 const KEY = process.env.REACT_APP_STRIPE
 
@@ -133,17 +134,21 @@ const NameAndSize = styled.div`
 `
 
 const Image = styled.img`
-    width: 20vw;
+    width: 15vw;
     min-width: 200px;
-    max-width: 400px;
-    height: 200px;
+    max-width: 300px;
+    height: 100%;
     object-fit: cover;
     margin: 10px 0px;
+
+    ${mobile({ width: "100%", height: "40vh" })};
 `
 
 const ProductName = styled.span`
     font-size: 24px;
     font-family: 'EB Garamond', serif;
+    
+    ${mobile({ textAlign: "center" })};
 `
 
 const ProductSize = styled.span`
@@ -244,12 +249,26 @@ const SummaryButton = styled.button`
 const Cart = () => {
     const cart = useSelector(state => state.cart);
     const [stripeToken, setStripeToken] = useState(null);
+    const dispatch = useDispatch();
+
+    const handleRemove = (id, price, quantity) => {
+        dispatch(removeProduct({  ...cart, id, price, quantity }));
+    };
+
+    const handleAdd = (id, price, quantity) => {
+        dispatch(addProductInCart({  ...cart.product, id, price, quantity }));
+    };
+
+    const handleSubtract = (id, price, quantity) => {
+        dispatch(subtractProductInCart({  ...cart.product, id, price, quantity }));
+    };
 
     const onToken = (token) => {
         setStripeToken(token);
     };
 
     const isMobile = useMediaQuery('(max-width: 600px)');
+
 
   return (
     <Container>
@@ -258,7 +277,7 @@ const Cart = () => {
         <Wrapper>
             <Title>Shopping Cart</Title>
             <Top>
-                <TopText to="/products/All">Continue Shopping</TopText>
+                <TopText to="/products/Any">Continue Shopping</TopText>
             </Top>
             <Bottom>
                 <Table>
@@ -290,9 +309,9 @@ const Cart = () => {
                                 <span></span>
                             )}
                         <ProductAmountContainer>
-                            <Add />
+                            <Add onClick={() => handleAdd(product._id, product.price, product.quantity)} />
                             <ProductAmount>{product.quantity}</ProductAmount>
-                            <Remove />
+                            <Remove onClick={() => handleSubtract(product._id, product.price, product.quantity)} />
                         </ProductAmountContainer>
                         {isMobile ? (
                                 <span>Total: </span>
@@ -301,7 +320,7 @@ const Cart = () => {
                             )}
                         <ProductPrice>${product.price * product.quantity}</ProductPrice>
                         <RemoveContainer>
-                            <RemoveButton>Remove</RemoveButton>
+                            <RemoveButton onClick={() => handleRemove(product._id, product.price, product.quantity)}>Remove</RemoveButton>
                         </RemoveContainer>
                     </Product>
                     ))}

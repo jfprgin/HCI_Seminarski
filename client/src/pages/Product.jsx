@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar'
 import Announcement from '../components/Announcement'
-import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 import { Add, Remove } from '@material-ui/icons'
 import { mobile } from '../responsive'
@@ -10,17 +9,25 @@ import { useLocation } from 'react-router'
 import { publicRequest } from '../requestMethods'
 import { addProduct } from '../redux/cartRedux'
 import { useDispatch } from 'react-redux'
+import Products from '../components/Products'
 
-const Container = styled.div``
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: #E8E8E1;
+`
 
 const Wapper = styled.div`
-    padding: 50px;
+    padding: 50px 10vw;
     display: flex;
     ${mobile({ padding: "10px", flexDirection: "column" })};
 `
 
 const ImgContainer = styled.div`
     flex: 1;
+    padding: 0px 2vw;
 `
 
 const Image = styled.img`
@@ -32,21 +39,32 @@ const Image = styled.img`
 
 const InfoContainer = styled.div`
     flex: 1;
-    padding: 0px 50px;
+    padding: 0px 10vw 0px 2vw;
     ${mobile({ padding: "10px" })};
 `
 
 const Title = styled.h1`
-    font-weight: 200;
+    font-family: 'EB Garamond', serif;
+    font-size: 64px;
+    color: #231F20;
+    font-weight: 600;
 `
 
 const Description = styled.p`
     margin: 20px 0px;
+    font-size: 20px;
 `
 
 const Price = styled.span`
-    font-weight: 100;
-    font-size: 40px;
+    font-size: 20px;
+    color: #231F20;
+`
+
+const SizeAndQuantity = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5vh;
+
 `
 
 const FilterContainer = styled.div`
@@ -59,51 +77,42 @@ const FilterContainer = styled.div`
 
 const Filter = styled.div`
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px 10px;
 `
 
 const FilterTitle = styled.span`
     font-size: 20px;
-    font-weight: 200;
-`
-
-const FilterColor = styled.div`
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: ${(props) => props.color};
-    margin: 0px 5px;
-    cursor: pointer;
 `
 
 const FilterSize = styled.select`
-    margin-left: 10px;
-    padding: 5px;
-    border: 1px solid gr
-    background-color: #fff;
+    padding: 5px 50px;
+    border: none;
+    border-bottom: 2px solid #231F20;
+    background-color: #E8E8E1;
+    cursor: pointer;
+    font-size: 20px;
 `
 
-const FilterSizeOption = styled.option``
+const FilterSizeOption = styled.option`
+`
 
-const AddContainer = styled.div`
-    width: 50%;
+
+
+const AmountContainer = styled.div`
+    padding-top: 7px;
+    color: #231F20;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    ${mobile({ width: "100%" })};
-`
-
-const AmountContainer = styled.div`
-    display: flex;
-    align-items: center;
-    font-weight: 700;
+    font-size: 20px;
+    border-bottom: 2px solid #231F20;
 `
 
 const Amount = styled.span`
     width: 30px;
     height: 30px;
-    border-radius: 10px;
-    border: 1px solid teal;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,15 +120,28 @@ const Amount = styled.span`
 `
 
 const Button = styled.button`
+    width: 100%;
     padding: 15px;
-    border: 2px solid teal;
-    background-color: #fff;
+    background-color: #231F20;
     cursor: pointer;
     font-weight: 500;
+    color: #E8E8E1;
+    transition: all 0.5s ease;
     
     &:hover {
-        background-color: #f8f4f4;
+        opacity: 0.8;
     }
+`
+
+const OtherProducts = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 5vh 0px;
+    border-top: 1px solid #231F20;
+
+    ${mobile({ flexDirection: "column" })};
 `
 
 const Product = () => {
@@ -178,35 +200,37 @@ const Product = () => {
             </ImgContainer>
             <InfoContainer>
                 <Title>{product.title}</Title>
-                <Description>{product.desc}</Description>
                 <Price>$ {product.price}</Price>
+                <Description>{product.desc}</Description>
+                <SizeAndQuantity>
                 <FilterContainer>
-                    <Filter>
-                        <FilterTitle>Color</FilterTitle>
-                        {product.color?.map((c) => (
-                            <FilterColor color={c} key={c} onClick={() => setColor(c)} />
-                        ))}
-                    </Filter>
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
                         <FilterSize onChange={(e) => setSize(e.target.value || product.size[0])}>
                             {product.size?.map((s) => (
-                                <FilterSizeOption key={s} value={s}>{s}</FilterSizeOption>
+                                <FilterSizeOption key={s} value={s}>{s} g</FilterSizeOption>
                             ))}
                         </FilterSize>
                     </Filter>
                 </FilterContainer>
-                <AddContainer>
-                    <AmountContainer>
-                        <Remove onClick={() => handleQuantity("dec")} />
-                        <Amount>{quantity}</Amount>
-                        <Add onClick={() => handleQuantity("inc")} />
-                    </AmountContainer>
-                    <Button onClick={handleClick}>ADD TO CART</Button>
-                </AddContainer>
+                <FilterContainer>
+                    <Filter>
+                        <FilterTitle>Quantity</FilterTitle>
+                        <AmountContainer>
+                            <Remove onClick={() => handleQuantity("dec")} />
+                            <Amount>{quantity}</Amount>
+                            <Add onClick={() => handleQuantity("inc")} />
+                        </AmountContainer>
+                    </Filter>
+                </FilterContainer>
+                </SizeAndQuantity>
+                <Button onClick={handleClick}>ADD TO CART</Button>
             </InfoContainer>
         </Wapper>
-        <Newsletter />
+        <OtherProducts>
+            <Title>Other Products</Title>
+            <Products />
+        </OtherProducts>
         <Footer />
     </Container>
   )

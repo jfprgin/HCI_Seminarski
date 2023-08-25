@@ -9,8 +9,10 @@ const Container = styled.div`
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
-    ${mobile({ justifyContent: "center" })};
+    justify-content: space-between;
+    margin: 0 -10px;
+    
+    ${mobile({ justifyContent: "center", margin: "0px" })};
 `
 
 const Products = ({cat, filters, sort}) => {
@@ -66,7 +68,7 @@ const Products = ({cat, filters, sort}) => {
           ))
         ) : (
           products
-            .slice(0, 8)
+            .slice(0, 3)
             .map((item) => <Product item={item} key={item._id} />)
         )}
     </Container>

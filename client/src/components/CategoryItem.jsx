@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     flex: 1;
-    margin: 3px;
-    height: 70vh;
+    margin: 10px;
+    height: 60vh;
     position: relative;
+    min-width: 400px;
+    transition: all 0.5s ease;
+
+    &:hover {
+        opacity: 0.8;
 `
 
 const Image = styled.img`
@@ -15,6 +20,15 @@ const Image = styled.img`
     height: 100%;
     object-fit: cover;
     ${mobile({ height: "30vh"})}
+`
+
+const ImageMask = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 12, 13, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
 `
 
 const Info = styled.div`
@@ -30,21 +44,30 @@ const Info = styled.div`
 `
 
 const Title = styled.h1`
-    color: white;
+    color: #E8E8E1;
     margin-bottom: 20px;
-    // If window with is less than 800px but more than 600px, font-size will be 20px
-    @media only screen and (max-width: 800px) and (min-width: 600px) {
-        font-size: 20px;
-    }
+    font-size: 40px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 100;
+    text-align: center;
 `
 
 const Button = styled.button`
     border: none;
-    padding: 10px;
-    background-color: white;
-    color: gray;
+    padding: 10px 20px;
+    background-color: #E8E8E1;
+    color: #231F20;
     cursor: pointer;
     font-weight: 600;
+    font-size: 20px;
+    transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    &:hover {
+        background-color: #231F20;
+        color: #E8E8E1;
+        scale: 1.1;
+    }
 `
 
 const CategoryItem = ({item}) => {
@@ -52,6 +75,7 @@ const CategoryItem = ({item}) => {
     <Container>
         <Link to={`/products/${item.cat}`}>
             <Image src={item.img} />
+            <ImageMask />
             <Info>
                 <Title>{item.title}</Title>
                 <Button>SHOP NOW</Button>

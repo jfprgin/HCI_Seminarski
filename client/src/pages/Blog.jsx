@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { mobile } from '../responsive'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import heroImg from '../assets/blogBackdrop.png'
+import heroImg from '../assets/blogBackdrop.jpg'
 import Articles from '../components/Articles'
 import Announcement from '../components/Announcement'
 

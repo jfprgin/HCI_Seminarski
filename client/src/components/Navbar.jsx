@@ -91,7 +91,6 @@ const Navbar = () => {
 
     const location = useLocation();
     const currentPath = location.pathname.split('/')[1];
-    console.log(currentPath)
     const isProductsPath = currentPath.split('/')[0] === 'products'
 
 
@@ -111,7 +110,7 @@ const Navbar = () => {
                     </StyledLink>
                 </MenuItem>
                 <MenuItem isActive={isProductsPath}>
-                    <StyledLink to="/products/All" >
+                    <StyledLink to="/products/Any" >
                         Shop
                     </StyledLink>
                 </MenuItem>
