@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar'
 import Announcement from '../components/Announcement'
@@ -27,6 +27,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 60vh;
 
     ${mobile({ padding: "10px" })};
 `
@@ -233,13 +234,14 @@ const SummaryItemPrice = styled.span`
 `
 
 const SummaryButton = styled.button`
+    font-size: 20px;
     width: 100%;
     padding: 20px;
     background-color: #231F20;
     border: none;
-    color: white;
-    font-weight: 600;
+    color: #E8E8E1;
     cursor: pointer;
+    transition: all 0.5s ease;
 
     &:hover {
         opacity: 0.5;
@@ -268,7 +270,6 @@ const Cart = () => {
     };
 
     const isMobile = useMediaQuery('(max-width: 600px)');
-
 
   return (
     <Container>
@@ -309,7 +310,7 @@ const Cart = () => {
                                 <span></span>
                             )}
                         <ProductAmountContainer>
-                            <Add onClick={() => handleAdd(product._id, product.price, product.quantity)} />
+                            <Add onClick={ () => handleAdd(product._id, product.price, product.quantity)}/>
                             <ProductAmount>{product.quantity}</ProductAmount>
                             <Remove onClick={() => handleSubtract(product._id, product.price, product.quantity)} />
                         </ProductAmountContainer>

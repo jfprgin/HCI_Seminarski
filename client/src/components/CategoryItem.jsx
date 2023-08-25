@@ -13,6 +13,9 @@ const Container = styled.div`
 
     &:hover {
         opacity: 0.8;
+    }
+
+    ${mobile({ minWidth: "200px"})}
 `
 
 const Image = styled.img`
@@ -61,12 +64,12 @@ const Button = styled.button`
     font-weight: 600;
     font-size: 20px;
     transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    opacity: 0.8;
 
     &:hover {
         background-color: #231F20;
         color: #E8E8E1;
-        scale: 1.1;
+        opacity: 1;
     }
 `
 

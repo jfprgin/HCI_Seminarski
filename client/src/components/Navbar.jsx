@@ -31,8 +31,6 @@ const Wrapper = styled.div`
     display: flex;                      // display: flex; is a CSS property that enables a flex context for all its direct children.
     justify-content: space-between;     // justify-content: space-between; is a CSS property that aligns items to the left and right sides of the container, with empty space in between.
     align-items: center;
-
-    $mobile({ padding: "10px 0px" });
 `
 
 const Left = styled.div`
@@ -60,6 +58,7 @@ const Center = styled.div`
     ${mobile({ flex: 2 })}
 `
 
+// Underline that expands from the left side of the MenuItem to the right side of the MenuItem when hovered over the MenuItem
 const MenuItem = styled.div`
     color: #231F20;
     font-weight: 500;
@@ -69,6 +68,21 @@ const MenuItem = styled.div`
     opacity: ${props => (props.isActive ? '0.4' : '1')};
     
     ${mobile({ fontSize: "14px", marginLeft: "10px" })}
+
+    display: inline-block;
+    padding-bottom:2px;
+    background-image: linear-gradient(#000 0 0);
+    background-position: 0 100%; /*OR bottom left*/
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    transition:
+        background-size 0.3s,
+        background-position 0s 0.3s; /*change after the size immediately*/
+      
+    &:hover {
+        background-position: 100% 100%; /*OR bottom right*/
+        background-size: 100% 2px;
+    }
 `
 
 const Right = styled.div`

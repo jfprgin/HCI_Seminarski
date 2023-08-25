@@ -21,20 +21,23 @@ const cartSlice = createSlice({
             state.products.pop(action.payload);
         },
         subtractProductInCart: ( state, action) => {
-            console.log(action.payload.quantity);
-            if ( state.quantity <= 1 ) 
-            {
-                state.quantity = 1;
+            const productId = action.payload.id;
+            const productToFind = state.products.find(product => product._id === productId);
+            if ( productToFind.quantity <= 1 ) 
+            {;
+                productToFind.quantity = 1;
             }
             else
             {
                 state.total -= action.payload.price;
-                state.quantity -= 1;
+                productToFind.quantity -= 1;
             }
         },
         addProductInCart: ( state, action) => {
+            const productId = action.payload.id;
+            const productToFind = state.products.find(product => product._id === productId);
             state.total += action.payload.price;
-            state.quantity += 1;
+            productToFind.quantity += 1;
         },
     }
 });

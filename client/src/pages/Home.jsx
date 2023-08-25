@@ -66,6 +66,7 @@ const AboutUs = styled.div`
   align-items: center;
   padding: 10vh 10vw;
   border-bottom: 1px solid #231F20;
+  
   ${mobile({ padding: "5vh 5vw"})};
 `
 
@@ -76,6 +77,8 @@ const AboutUsText = styled.div`
   letter-spacing: 3px;
   color: #231F20;
   padding: 5vh 0;
+
+  ${mobile({ fontSize: "16px", padding: "2vh 0" })};
 `
 
 const Paragraph = styled.p`
@@ -85,6 +88,8 @@ const Paragraph = styled.p`
   letter-spacing: 3px;
   color: #231F20;
   padding: 10px 0;
+
+  ${mobile({ fontSize: "18px", padding: "2vh 0" })};
 `
 
 const Home = () => {

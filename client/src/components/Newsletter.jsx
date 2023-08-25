@@ -10,6 +10,8 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    ${mobile({ height: "50vh" })}
 `
 
 const Title = styled.h1`

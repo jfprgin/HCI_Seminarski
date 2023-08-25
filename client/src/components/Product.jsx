@@ -13,9 +13,10 @@ const Container = styled.div`
     flex-direction: column;
     text-align: center;
     padding-bottom: 20px;
+    transition: all 0.5s ease;
 
     &:hover img {
-        transform: scale(1.05);
+        transform: scale(1.1);
     }
 
     ${mobile({ width: "80vw", paddingBottom: "0px", margin: "0px" })};
@@ -26,7 +27,7 @@ const ImageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin: 20px 0px;
 `
 
 const Image = styled.img`

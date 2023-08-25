@@ -22,24 +22,29 @@ const Container = styled.div`
 const Wapper = styled.div`
     padding: 50px 10vw;
     display: flex;
+
     ${mobile({ padding: "10px", flexDirection: "column" })};
 `
 
 const ImgContainer = styled.div`
     flex: 1;
     padding: 0px 2vw;
+
+    ${mobile({ padding: "0px" })};
 `
 
 const Image = styled.img`
     width: 100%;
     height: 90vh;
     object-fit: cover;
+
     ${mobile({ height: "40vh" })};
 `
 
 const InfoContainer = styled.div`
     flex: 1;
     padding: 0px 10vw 0px 2vw;
+
     ${mobile({ padding: "10px" })};
 `
 
@@ -48,11 +53,15 @@ const Title = styled.h1`
     font-size: 64px;
     color: #231F20;
     font-weight: 600;
+
+    ${mobile({ fontSize: "40px" })};
 `
 
 const Description = styled.p`
     margin: 20px 0px;
     font-size: 20px;
+
+    ${mobile({ fontSize: "16px" })};
 `
 
 const Price = styled.span`
@@ -64,7 +73,8 @@ const SizeAndQuantity = styled.div`
     display: flex;
     justify-content: space-between;
     padding-bottom: 5vh;
-
+    
+    ${mobile({ flexDirection: "column" })};
 `
 
 const FilterContainer = styled.div`
@@ -93,6 +103,8 @@ const FilterSize = styled.select`
     background-color: #E8E8E1;
     cursor: pointer;
     font-size: 20px;
+
+    ${mobile({ padding: "5px 5px" })};
 `
 
 const FilterSizeOption = styled.option`
@@ -108,6 +120,8 @@ const AmountContainer = styled.div`
     justify-content: space-between;
     font-size: 20px;
     border-bottom: 2px solid #231F20;
+
+    ${mobile({ padding: "0px" })};
 `
 
 const Amount = styled.span`

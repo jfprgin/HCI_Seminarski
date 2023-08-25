@@ -30,13 +30,13 @@ export const categories = [
         id: 2,
         img: "https://images.unsplash.com/photo-1524350876685-274059332603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2942&q=80",
         title: "WHOLEGROUND COFFEE",
-        cat: "Any",
+        cat: "Wholeground",
     },
     {
         id: 3,
         img: "https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
         title: "MEDIUM ROAST COFFEE",
-        cat: "Any",
+        cat: "Medium",
     },
 ];
 
