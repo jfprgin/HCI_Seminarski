@@ -167,6 +167,8 @@ const ProductAmount = styled.div`
     font-size: 18px;
     margin: 5px;
     padding: 10px;
+    color: #231F20;
+    border: 1px solid #231F20;
 
     ${mobile({ margin: "0px", padding: "5px", fontSize: "14px" })};
 `
@@ -310,9 +312,9 @@ const Cart = () => {
                                 <span></span>
                             )}
                         <ProductAmountContainer>
-                            <Add onClick={ () => handleAdd(product._id, product.price, product.quantity)}/>
+                            <Add onClick={ () => handleAdd(product._id, product.price, product.quantity)} style={{ cursor: "pointer" }} />
                             <ProductAmount>{product.quantity}</ProductAmount>
-                            <Remove onClick={() => handleSubtract(product._id, product.price, product.quantity)} />
+                            <Remove onClick={() => handleSubtract(product._id, product.price, product.quantity)} style={{ cursor: "pointer" }}/>
                         </ProductAmountContainer>
                         {isMobile ? (
                                 <span>Total: </span>
@@ -335,7 +337,7 @@ const Cart = () => {
                     </SummaryItem>
                     <StripeCheckout
                         name="React Ecommerce"
-                        image="https://avatars.githubusercontent.com/u/1486366?v=4"
+                        image="https://clipart-library.com/images_k/face-profile-silhouette/face-profile-silhouette-18.png"
                         billingAddress
                         shippingAddress
                         description={`Your total is $${cart.total}`}

@@ -18,6 +18,8 @@ const Container = styled.div`
   min-height: 100vh;
   background-color: #E8E8E1;
   border-bottom: 1px solid #231F20;
+
+  ${mobile({ border: "none" })};
 `
 
 const Wapper = styled.div`
