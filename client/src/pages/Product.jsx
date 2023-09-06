@@ -231,9 +231,9 @@ const Product = () => {
                     <Filter>
                         <FilterTitle>Quantity</FilterTitle>
                         <AmountContainer>
-                            <Remove onClick={() => handleQuantity("dec")} />
+                            <Remove onClick={() => handleQuantity("dec")} style={{cursor: "pointer"}} />
                             <Amount>{quantity}</Amount>
-                            <Add onClick={() => handleQuantity("inc")} />
+                            <Add onClick={() => handleQuantity("inc")} style={{cursor: "pointer"}} />
                         </AmountContainer>
                     </Filter>
                 </FilterContainer>

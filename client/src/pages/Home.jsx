@@ -26,7 +26,8 @@ const Wapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px 5vw;
-  ${mobile({ padding: "10px"})};
+  margin-bottom: 5vh;
+  ${mobile({ padding: "10px", marginBottom: "0vh" })};
 `
 
 const Title = styled.h1`
