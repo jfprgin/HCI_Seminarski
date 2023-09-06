@@ -24,7 +24,7 @@ const Articles = () => {
         const getArticles = async () => {
             try {
                 const res = await axios.get(
-                    `http://localhost:5000/api/articles`
+                    `https://hci-seminarski.onrender.com/api/articles`
                 );
                 setArticles(res.data);
             } catch (err) {}
