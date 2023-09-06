@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar'
 import Announcement from '../components/Announcement'
@@ -11,6 +10,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useMediaQuery } from '@material-ui/core'
 import { removeProduct, addProductInCart, subtractProductInCart } from '../redux/cartRedux'
+import Modal from 'react-modal'
 
 const KEY = process.env.REACT_APP_STRIPE
 
@@ -250,6 +250,32 @@ const SummaryButton = styled.button`
     }
 `
 
+const ModalTitle = styled.h2`
+    color: #231F20;
+    font-family: 'EB Garamond', serif;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 20px;
+`
+
+const ModalButton = styled.button`
+    width: 40%;
+    padding: 20px;
+    background-color: #231F20;
+    color: #E8E8E1;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    margin: 10px;
+    font-size: 18px;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    ${mobile({ width: "80%" })};
+`
+
 const Cart = () => {
     const cart = useSelector(state => state.cart);
     const [stripeToken, setStripeToken] = useState(null);
@@ -272,6 +298,16 @@ const Cart = () => {
     };
 
     const isMobile = useMediaQuery('(max-width: 600px)');
+
+    const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+
+    const openCheckoutModal = () => {
+        setIsCheckoutModalOpen(true);
+    };
+
+    const closeCheckoutModal = () => {
+        setIsCheckoutModalOpen(false);
+    };
 
   return (
     <Container>
@@ -335,18 +371,44 @@ const Cart = () => {
                         <SummaryItemText>SUBTOTAL: </SummaryItemText>
                         <SummaryItemPrice>${cart.total}</SummaryItemPrice>
                     </SummaryItem>
-                    <StripeCheckout
-                        name="React Ecommerce"
-                        image="https://clipart-library.com/images_k/face-profile-silhouette/face-profile-silhouette-18.png"
-                        billingAddress
-                        shippingAddress
-                        description={`Your total is $${cart.total}`}
-                        amount={cart.total * 100}
-                        token={onToken}
-                        stripeKey={KEY}
+                        <SummaryButton onClick={openCheckoutModal}>Checkout</SummaryButton>
+                        <Modal
+                        isOpen={isCheckoutModalOpen}
+                        onRequestClose={closeCheckoutModal}
+                        style={{
+                            overlay: {
+                                backgroundColor: 'rgba(0,0,0,0.5)'
+                            },
+                            content: {
+                                width: isMobile ? "70%" : "50%",
+                                height: isMobile ? "30%" : "50%",
+                                margin: "auto",
+                                borderRadius: "10px",
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                backgroundColor: "#E8E8E1"
+                            }
+                        }}
                     >
-                        <SummaryButton>Checkout</SummaryButton>
-                    </StripeCheckout>
+                        <ModalTitle>Are you sure you want to checkout?</ModalTitle>
+                        <div style={{ width: "100%", textAlign: "center" }}>
+                        <StripeCheckout
+                                name="React Ecommerce"
+                                image="https://clipart-library.com/images_k/face-profile-silhouette/face-profile-silhouette-18.png"
+                                billingAddress
+                                shippingAddress
+                                description={`Your total is $${cart.total}`}
+                                amount={cart.total * 100}
+                                token={onToken}
+                                stripeKey={KEY}
+                            >
+                            <ModalButton>Yes</ModalButton>
+                        </StripeCheckout>
+                        </div>
+                            <ModalButton onClick={closeCheckoutModal}>No</ModalButton>
+                    </Modal>
                     </SummaryRight>
                 </Summary>
             </Bottom>

@@ -19,7 +19,7 @@ const Container = styled.div`
         transform: scale(1.1);
     }
 
-    ${mobile({ width: "80vw", margin: "0px" })};
+    ${mobile({ width: "80vw"})};
 `
 
 const ImageContainer = styled.div`

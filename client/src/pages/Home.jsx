@@ -9,6 +9,7 @@ import Footer from '../components/Footer'
 import styled from 'styled-components'
 import { mobile } from '../responsive'
 import { aboutUs } from '../data'
+import { Link } from 'react-router-dom'
 
 // Center the content of the page
 const Container = styled.div`
@@ -105,7 +106,9 @@ const Home = () => {
           <Wapper>
           <Categories />
           <Title>New Arrivals</Title>
-          <Button onClick={() => window.location.href = "/products/Any"}>SHOP NOW</Button>
+          <Button>
+            <Link to="/products/Any" style={{textDecoration: "none", color: "#231F20"}}>SHOP NOW</Link>
+          </Button>
           <Products />
           </Wapper>
         </Container>

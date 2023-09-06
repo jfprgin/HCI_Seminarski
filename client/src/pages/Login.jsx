@@ -6,6 +6,7 @@ import { login } from '../redux/apiCalls'
 import { useDispatch, useSelector } from 'react-redux'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     display: flex;
@@ -88,7 +89,8 @@ const Button = styled.button`
         cursor: not-allowed;
 `
 
-const Link = styled.a`
+// use Link from react-router-dom
+const RegisterLink = styled(Link)`
     color: #231F20;
     font-size: 14px;
     text-decoration: underline;
@@ -121,14 +123,14 @@ const Login = () => {
                     <Input onChange={e => setUsername(e.target.value)} />
                     <FormLabel>
                         <Password>Password</Password>
-                        <Link>Forgot Password?</Link>
+                        <RegisterLink>Forgot Password?</RegisterLink>
                     </FormLabel>
                     <Input type="password" onChange={e => setPassword(e.target.value)} />
                     <Button onClick={handleClick} disabled={isFetching}>Sign In</Button>
                     {error && <Error>Something went wrong...</Error>}
-                    <Link href="/register" >
+                    <RegisterLink to="/register" >
                         Create a New Account
-                    </Link>
+                    </RegisterLink>
                 </Form>
             </Wrapper>
         </LoginContainer>
