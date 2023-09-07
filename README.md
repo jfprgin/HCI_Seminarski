@@ -1,37 +1,42 @@
-api:
+Dokumentacija:
+    https://www.notion.so/Coffee-Shop-e68773c29498429f860f4b7c507c7299?pvs=4
 
-    npm init react-app  e-commerce-app-2
 
-    npm install -g nodemon --save-dev
+Podsjetnik:
+    api:
 
-    npm install -g yarn
+        npm init react-app  e-commerce-app-2
 
-    yarn add express
+        npm install -g nodemon --save-dev
 
-    yarn add express mongoose dotenv nodemon
+        npm install -g yarn
 
-    yarn add crypto-js
+        yarn add express
 
-    yarn add jsonwebtoken
+        yarn add express mongoose dotenv nodemon
 
-    yarn add stripe
+        yarn add crypto-js
 
-    yarn add cors
+        yarn add jsonwebtoken
 
-client:
+        yarn add stripe
 
-    yarn add styled-components
+        yarn add cors
 
-    yarn add @material-ui/core @material-ui/icons
+    client:
 
-    yarn add react-stripe-checkout
-    
-    yarn add react-router-dom
+        yarn add styled-components
 
-    yarn add axios
+        yarn add @material-ui/core @material-ui/icons
 
-    yarn add @reduxjs/toolkit react-redux
+        yarn add react-stripe-checkout
+        
+        yarn add react-router-dom
 
-    yarn add react-stripe-checkout
-    
-    yarn add redux-persist
+        yarn add axios
+
+        yarn add @reduxjs/toolkit react-redux
+
+        yarn add react-stripe-checkout
+        
+        yarn add redux-persist
