@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { sliderItems } from '../data'
 import { mobile } from '../responsive'
+import { Link } from 'react-router-dom'
 
 //When screen size is to narrow, the info container will be under the image container
 
@@ -142,7 +143,9 @@ const Slider = () => {
                     <InfoContainer>
                         <Title>{item.title}</Title>
                         <Description>{item.desc}</Description>
-                        <Button onClick={() => window.location.href = "/products/Any"}>SHOP NOW</Button>
+                        <Button>
+                            <Link to="/products/Any" style={{textDecoration: "none", color: "#231F20"}}>SHOP NOW</Link>
+                        </Button>
                     </InfoContainer>
                 </Slide>
             ))}
