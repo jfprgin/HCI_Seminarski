@@ -2,7 +2,6 @@
 
 <a href="https://ibb.co/54Dwxcd"><img src="https://i.ibb.co/fFRLG0b/Snimka-zaslona-2023-09-07-210716.png" alt="Snimka-zaslona-2023-09-07-210716" border="0" /></a>
 ### Link na web stranicu: http://coffee-shop.great-site.net/
-### Link na web stranicu: http://coffee-shop.great-site.net/
 
 ## Sadržaj
 
