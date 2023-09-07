@@ -120,6 +120,13 @@ const Button = styled.button`
     }
 `
 
+const ButtonLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+    font-family: 'EB Garamond', serif;
+    font-size: 40px;
+`
+
 const Slider = () => {
     const [slideIndex, setSlideIndex] = useState(0)
 
@@ -144,7 +151,7 @@ const Slider = () => {
                         <Title>{item.title}</Title>
                         <Description>{item.desc}</Description>
                         <Button>
-                            <Link to="/products/Any" style={{textDecoration: "none", color: "#231F20"}}>SHOP NOW</Link>
+                            <ButtonLink to="/products/Any" >SHOP NOW</ButtonLink>
                         </Button>
                     </InfoContainer>
                 </Slide>
