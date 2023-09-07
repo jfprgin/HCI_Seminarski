@@ -96,11 +96,6 @@ const Paragraph = styled.p`
   ${mobile({ fontSize: "18px", padding: "2vh 0" })};
 `
 
-const ShopLink = styled(Link)`
-  text-decoration: none;
-  color: #231F20;
-`
-
 const Home = () => {
   return (
     <div style={{backgroundColor: "#E8E8E1"}}>
@@ -112,7 +107,7 @@ const Home = () => {
           <Categories />
           <Title>New Arrivals</Title>
           <Button>
-            <Link to="/products/Any" style={{textDecoration: "none", color: "#231F20"}}>SHOP NOW</Link>
+            <Link to="/products/Any" style={{textDecoration: "none", color: "inherit"}}>SHOP NOW</Link>
           </Button>
           <Products />
           </Wapper>
