@@ -49,17 +49,17 @@ Da bi korisnik mogao koristiti aplikaciju mora:
 
 ## Dokumentacija
 
-[Sitemap](https://www.notion.so/Sitemap-888a0aec2ee742d9bda76bbc2e7613e2?pvs=21)
+[Sitemap](https://right-mile-fe5.notion.site/Sitemap-888a0aec2ee742d9bda76bbc2e7613e2)
 
-[Low Fidelity](https://www.notion.so/Low-Fidelity-7464afc694074b2a97a6e15616ba9318?pvs=21)
+[Low Fidelity](https://right-mile-fe5.notion.site/Sitemap-888a0aec2ee742d9bda76bbc2e7613e2)
 
-[High Fidelity](https://www.notion.so/High-Fidelity-892bf7af3bff44b1bc3adf486b2e6ffb?pvs=21)
+[High Fidelity](https://right-mile-fe5.notion.site/High-Fidelity-892bf7af3bff44b1bc3adf486b2e6ffb)
 
-[Heuristike](https://www.notion.so/Heuristike-252e76313ef4444da417818caa5aa2fe?pvs=21)
+[Heuristike](https://right-mile-fe5.notion.site/Heuristike-252e76313ef4444da417818caa5aa2fe)
 
-[CRAP principi](https://www.notion.so/CRAP-principi-78d7e69b1e1d4a7db1efb808c4379e09?pvs=21)
+[CRAP principi](https://right-mile-fe5.notion.site/CRAP-principi-78d7e69b1e1d4a7db1efb808c4379e09)
 
-[Teorije niske razine](https://www.notion.so/Teorije-niske-razine-2abb241450da47ee8aab2ac2281c3337?pvs=21)
+[Teorije niske razine](https://right-mile-fe5.notion.site/Teorije-niske-razine-2abb241450da47ee8aab2ac2281c3337)
 
 ## Korišteni alati
 * Low and High Fidelity
@@ -87,7 +87,7 @@ Pravilno razumijevanje i primjena različitih dizajnerskih principa, kao i kori�
 
 ## Ostalo
 
-### Link za Notion dokumentaciju: https://www.notion.so/Coffee-Shop-e68773c29498429f860f4b7c507c7299
+### Link za Notion dokumentaciju: https://right-mile-fe5.notion.site/Coffee-Shop-e68773c29498429f860f4b7c507c7299
 
 ### Github repozitoriji: https://github.com/jfprgin/HCI_Seminarski.git
 
