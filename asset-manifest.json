@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.js": "/HCI_Seminarski/static/js/main.1850c1d6.js",
+    "main.js": "/HCI_Seminarski/static/js/main.64a094cc.js",
+    "static/media/homeHero.jpg": "/HCI_Seminarski/static/media/homeHero.1d402f384150b2e46105.jpg",
     "static/media/contactBackdrop.jpg": "/HCI_Seminarski/static/media/contactBackdrop.7c6bb65532266e599ff1.jpg",
     "static/media/blogBackdrop.jpg": "/HCI_Seminarski/static/media/blogBackdrop.597a9f6659088ace751f.jpg",
     "static/media/logo.svg": "/HCI_Seminarski/static/media/logo.69fe3c6f0beb716522068b2db7cc7aa0.svg",
     "static/media/logoInverted.svg": "/HCI_Seminarski/static/media/logoInverted.179451f472af80270f3abb50ab774843.svg",
     "index.html": "/HCI_Seminarski/index.html",
-    "main.1850c1d6.js.map": "/HCI_Seminarski/static/js/main.1850c1d6.js.map"
+    "main.64a094cc.js.map": "/HCI_Seminarski/static/js/main.64a094cc.js.map"
   },
   "entrypoints": [
-    "static/js/main.1850c1d6.js"
+    "static/js/main.64a094cc.js"
   ]
 }
